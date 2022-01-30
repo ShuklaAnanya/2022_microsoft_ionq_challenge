@@ -54,3 +54,7 @@ When a measurement occurs, the one with a win state in classical tic tac toe win
 
 1) https://medium.com/@toohonlin/develop-quantum-mechanics-intuition-through-quantum-game-qubit-tic-tac-toe-d9814bc927dc
 2) https://www.researchgate.net/publication/338113536_Quantum_Tic-Tac-Toe_A_Hybrid_of_Quantum_and_Classical_Computing
+
+### Team Experience at iQuHACK 2022
+----------------------------------------------------
+Our experience as a team at the Interdisciplinary Quantum Hackathon 2022 by MIT has been a great learning experience. The expert sessions with industry specialists and leading researchers was motivating and enlightening. The hackathon has given us an extremley great platform to exercise our knowledge in the field of quantum computation and programming to work on something unique and fun filled. We are extremely grateful for opportunity given and are utmost sure that this hackathon has motivated us to contribute our time and effort as a part of the quantum workforce.
