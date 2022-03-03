@@ -1,76 +1,111 @@
-# Welcome to IonQ + Microsoft Joint Challenge @ MIT iQuHACK 2022!
+# Welcome to IonQ + Microsoft Joint Challenge @ MIT iQuHACK 2022! #QuantumTicTacToe
 
-<p align="left">
-  <a href="https://azure.microsoft.com/en-us/solutions/quantum-computing/" target="_blank"><img src="https://user-images.githubusercontent.com/10100490/151488491-609828a4-cd1f-4076-b5b2-a8d9fc2d0fa4.png" width="30%"/> </a>
-  <a href="https://ionq.com/" target="_blank"><img src="https://user-images.githubusercontent.com/10100490/151488159-da95eb05-9277-4abe-b1ba-b49871d563ed.svg" width="20%" style="padding: 1%;padding-left: 5%"/></a>
-  <a href="https://iquhack.mit.edu/" target="_blank"><img src="https://user-images.githubusercontent.com/10100490/151647370-d161d5b5-119c-4db9-898e-cfb1745a8310.png" width="8%" style="padding-left: 5%"/> </a>
-  
-</p>
+![](Assets/Header.jpg)
+
+[Michael Kougang](https://github.com/RoyalWeden), [Henry Atkins](https://github.com/henry-dev-atkins), [Ananya Shukla](https://github.com/ShuklaAnanya), [Swaraj Purohit](https://github.com/anomius)
+-------------------------------------------------------------
+
+<br />
+
+## Team Experience at iQuHACK 2022
+----
+Our experience as a team during the Interdisciplinary Quantum Hackathon (iQuHack) 2022 by MIT has been a great learning experience. Through the expert sessions and talks with industry specials and leading researchers, we became even more motivated and enlightened. With our backgrounds in Python programming, computer science, and basic understandings of quantum computing and mechancs, we were happy to gear up and participate in this high quality. This hackathon has given us an wonderful platform to exercise our knowledge in the field of quantum computation and computer programming to work on something unique, fulfilling, and fun. We are extremely grateful for opportunity given by the iQuHack Staff, the Microsoft Quantum Team, and the IonQ Team. We are utmost sure that this hackathon has motivated us to contribute our time and effort as a part of the future quantum workforce.
+
+----
+<br />
+The game we will be quantizing today is none other than the infamous Tic Tac Toe! Here, "Quantizing" a game simply means introducing quantum effect into the game. 
+
+For those who have never heard of this game, Tic Tac Toe is a 2-player strategy game, where players take turns to place their marking (either "X" or "O") on a 3x3 board. The goal is to form a straight line from 3 markings, which can be straight or diagonal.
+
+Our quantum Tic Tac Toe is the extension of Schoridnger’s cat — but instead of 1 box, we have 9 boxes with 9 cats inside. Before opening the box and performing a measurement, you can perform all sorts of unitary operations on the box as long as it is non-destructive. The goal is to keep 3 cats alive in a straight line. Why does this happen to our poor cat? Well, who knows, let’s just "shut up and play the game"!
+
+<br />
+
+## Motivation
+Eveyone now and then likes to have some time to relax. What better way to do this by playing a childhood classic — Tic Tac Toe. However, with a slight quantum twist. Since quantum computing is still in an early stage of development, we wanted to be able to find the best game possible to use the IonQ quantum computer. Will you be able to achieve victory in this quantumized Tic Tac Toe?
+
+<br />
+
+## Instructions
+----------------------------------------------------
+0. In X's turn, X applies an X (pauli) and H (Hadamard) gate on the chosen
+   cell.
+1. In O's turn, O applies a H gate on the cell of choice.
+2. To select the cell to claim, type an integer (0-8) when prompted. 
+   X's cells are labelled 1, and O's cells are labelled 0.
+3. Players may take their turn on existing cells
+   to change its state.
+4. To entangle two cells, players can apply the
+   CX gate to two cells through the command
+   CX (first cell) (second cell). e.g. CX 4 5.
+5. When a player wants to use the current state
+   of the board to get results, they can measure it
+   with 'm'. Warning: only play this if you think you'll win!
+6. Have fun!
+
+#### How to win
+----------------------------------------------------
+
+When a measurement occurs, the one with a win state (3 X's or 3 O's in a row) in classical tic tac toe wins.
+
+<br />
+
+## The Board
+----------------------------------------------------
+For the player to select a certain square, they must denote it by one of the following numbers.
+```bash
+┌───┬───┬───┐
+│ 0 │ 1 │ 2 │
+├───┼───┼───┤
+│ 3 │ 4 │ 5 │
+├───┼───┼───┤
+│ 6 │ 7 │ 8 │
+└───┴───┴───┘
+```
 
 
-Quantum computing has many exciting applications in chemistry, machine learning, and optimization – but we've only scratched the surface of the possibilities as a civilization, just like classical computing in the 1950s. We hope you all go on to do quantum algorithms research that will revolutionize every aspect of society for the better!
+### Sample Runthrough
+![Sample Runthrough Image 1](Assets/output1.jpg)
+![Sample Runthrough Image 2](Assets/output2.jpg)
+![Sample Runthrough Image 3](Assets/output3.jpg)
+![Sample Runthrough Image 4](Assets/output4.jpg)
+![Sample Runthrough Image 5](Assets/output5.jpg)
 
-Today, though, we've got just 26 hours, and we'd like you to use a quantum computer to build a game, or a component of a game.
 
-The possibilities should feel as big as the ones offered by your regular computer! A few ideas to juice your thinking:
-* Use a quantum computer as a random number generator or noise source for
-  - seeding behaviors
-  - procedurally generating maps or music
-* Use quantum logic itself as a gaming mechanism, whether for fun or education
-* Apply Quantum Machine Learning to gameplay
-* [Run Doom... on the universe?](https://www.smbc-comics.com/comic/qc)
+```bash
+git clone https://github.com/RoyalWeden/2022_microsoft_ionq_challenge.git
+cd 2022_microsoft_ionq_challenge
+./setup.sh
+```
 
-You’ll be able to test your projects on a real ion trap quantum computer provided by IonQ (which [shoots lasers at individual atoms to compute](https://ionq.com/technology)).
-*Remember that current devices are still NISQ, and noise can overtake the computation really fast. We recommend you experiment with circuits that use under a few dozen two-qubit gates.*
+## Gameplay
+In the beginning, there are two players: X's and O's. Each player takes a turn deciding from one of the three possible moves:
+1. Mark/Label a square from 0 to 8 as their own (X's will place a '1' and O's will place a '0' on the selected square.).
+2. Entangle two squares no matter their current state with the Controlled-X gate (Example command: CX 2 5).
+3. Measure the board to finalize the results and end the game.
 
-You can develop your project using any language supported by Azure Quantum: Q#, Qiskit, or Cirq.
+Let us take 3 rounds, for example, however, in a normal game, the game board will need to be filled before either player can end the game by measuring the board. In round 1, player X may mark cell 2 and player O may mark cell 5. In round 2, player X may mark cell 0 and player O may mark cell 8. In the last round, player X may mark cell 5 and player O may entangle cells 8 and 1. In the round after, player X may decide to measure the board, hence, ending the game. To note where each round starts and ends, the circuit below is denoted with barriers.
 
-## Using Azure Quantum
-You should have received an invite to join quantum workspace https://portal.azure.com/52f51314-00bb-49b7-a28d-0b0a4be6d1c9. Join it, and use that workspace’s information to connect to Azure from the environment you’re using to work with the QDK:
-* Subscription ID: b1d7f7f8-743f-458e-b3a0-3e09734d716d
-* Workspace ID: aq-hackathon-01
-* Storage account: aqhackathon01
-* Location: eastus
+#### Example Circuit
+------
+![Circuit for Example Gameplay](Assets/ExampleCircuitTTT.png)
+------
 
-Don't wait until the last moment to submit your programs! IonQ systems operate on a queue system. If you submit a program, it may take a few hours to complete. If you want to make sure you get your results back by Sunday morning, make sure to submit them by the end of day on Saturday.
+### Gameplay Tips
+------
+For these tips, we assume a fault-tolerant quantum computer. In the below diagram you can see that if either player marks the same square twice, there 100% certainty that when measured, their mark will show on the square. However, if both players mark the same square, then this gives the first player absolute certainty their mark will show on the classical board. In the last shown scenario, a player can cause there to be 50/50 certainty for which player's mark will show on the classical board, even when the first player may have had absolute certainty before.
+![Tips to Win Quantum Tic Tac Toe](Assets/TipsToWin.png)
 
-## Submitting your projects
-To submit your solutions:
-1. Fork this repository to your GitHub account.
-2. Commit your project to your forked repository.  
-Include any files you consider relevant: the project itself, README including the description of the project and instructions on running the project, screenshots of results, any visualizations you've done, your project presentation, etc.
-3. To submit your project, submit the link to your repository as detailed on https://iquhack.mit.edu/.
-Your repository has to be made public at the time of the Hackathon end for us to be able to judge your solutions. We don't recommend making your work public early during the Hackathon, so as not to tempt other teams to borrow from your work. Let everybody enjoy their exploration!
-*Note that GitHub doesn't allow to change visibility of the forks. You can either fork the repository, keep it public, and push your changes at the last possible moment, or you can duplicate the repository, make it private to work on it during the Hackathon, and make it public at the end of the Hackathon.*
-4. If you want to write a blog post about your project, publish it shortly after the Hackathon ends and add a link to it to your GitHub repository.
+<br />
 
-## Judging
 
-We'll be evaluating the projects based on several criteria, as detailed in this **rubric:** 
+## Link to the presentation:
+https://www.canva.com/design/DAE27cvEZ1w/hfnhZ23s4G40aQMkOKCVGw/view?utm_content=DAE27cvEZ1w&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
 
-https://docs.google.com/document/u/1/d/e/2PACX-1vR5PVoInN_Fi42lIOchhblgGBPblgNyouj1XHukonZ4sdqY-p5ulS9TxdzvddEcDNFc5k_6teFyKzXv/pub
+<br />
 
-## Eligibility and prizes
-The (1) highest team score will receive a **$500 Visa Gift Card** (physical or virtual) for the team. The next (4) highest team scores will receive a **$250 Visa Gift Card** (physical or virtual) for the team. The (5) winning teams will have an opportunity to present their projects to the Microsoft Quantum Team at a later date and time (to be scheduled after the results announcement).
+## Bibliography
+----------------------------------------------------
 
-Government officials and Microsoft employees are not eligible to participate in this challenge.
-
-For the general rules on eligibility and hackathon participation, please refer to the [official rules](http://iquhack.mit.edu/).
-
-## Resources
-
-### Microsoft Quantum Development Kit installation
-
-For this Hackathon, you have several options of setting up the QDK:
-
-* local setup: you'll need the [standalone QDK](https://docs.microsoft.com/en-us/azure/quantum/install-command-line-qdk), and possibly (depending on what kind of project you decide to do) integration with [Q# Jupyter Notebooks](https://docs.microsoft.com/en-us/azure/quantum/install-jupyter-qkd) and/or with [Python](https://docs.microsoft.com/en-us/azure/quantum/install-python-qdk).
-* qBraid: you can use qBraid virtual environment to develop your project. Here are the tutorials on how to [use Q# with qBraid](https://www.youtube.com/watch?v=E5JH1YfqSos) and [submit Azure Quantum jobs with qBraid](https://www.youtube.com/watch?v=WLAAqsqlYb8).
-* Azure Portal: you can use the hosted notebooks experience to run code directly from Azure Portal.
-
-### Documentation and tutorials
-
-* [Azure Quantum and QDK documentation](https://docs.microsoft.com/quantum).
-* [The Quantum Katas](https://github.com/Microsoft/QuantumKatas/) - a collection of tutorials and practice problems.
-* Microsoft Learn learing path ["Quantum computing foundations"](https://docs.microsoft.com/learn/paths/quantum-computing-fundamentals/).
-* [Q# developer blog](https://devblogs.microsoft.com/qsharp/).
-* Azure Fridays episode [Quantum programming with Q# and running on hardware with Azure Quantum](https://www.youtube.com/watch?v=c9Df90CVHkc) shows the end-to-end quantum software development process with the QDK tools.
+1) https://medium.com/@toohonlin/develop-quantum-mechanics-intuition-through-quantum-game-qubit-tic-tac-toe-d9814bc927dc
+2) https://www.researchgate.net/publication/338113536_Quantum_Tic-Tac-Toe_A_Hybrid_of_Quantum_and_Classical_Computing

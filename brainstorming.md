@@ -1,4 +1,5 @@
 # Quantum Tic Tac Toe
+![](Assets/Header.jpg)
 Michael Kougang, Henry Atkins, Ananya Shukla, Swaraj Purohit
 -------------------------------------------------------------
 The game we will be quantizing today is none other than the infamous tic tac toe!“Quantizing” a game simply means introducing quantum effect into the game. 
